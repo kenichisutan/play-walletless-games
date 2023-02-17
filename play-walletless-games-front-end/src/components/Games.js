@@ -12,6 +12,7 @@ const Games = () => {
                 release_date: "2017",
                 esrb_rating: "E10+",
                 genre: "Action-Adventure",
+                description: "Sample description"
             },
             {
                 id: 2,
@@ -19,6 +20,7 @@ const Games = () => {
                 release_date: "2017",
                 esrb_rating: "E",
                 genre: "Racing",
+                description: "Sample description"
             },
         ];
         setGames(gamesList)

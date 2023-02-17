@@ -5,6 +5,9 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import ErrorPage from "./components/ErrorPage";
 import Home from "./components/Home";
 import Games from "./components/Games";
+import Game from "./components/Game";
+import Genres from "./components/Genres";
+import Manage from "./components/Manage";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +19,27 @@ const router = createBrowserRouter([
             {
                 path: "/games",
                 element: <Games />
-            }
+            },
+            {
+                path: "/games/:id",
+                element: <Game />
+            },
+            {
+                path: "/genres",
+                element: <Genres />
+            },
+            {
+                path: "/admin/game/0",
+                element: <Games />
+            },
+            {
+                path: "/manage",
+                element: <Manage />
+            },
+            {
+                path: "/graphql",
+                element: <Games />
+            },
         ]
     }
 ])
