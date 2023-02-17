@@ -1,4 +1,4 @@
-import Home from './components/Home'
+import {Outlet} from "react-router-dom";
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
             <div className="col-md-2">
                 <nav>
                     <div className="list-group">
-                        <a href="#!" className="list-group-item list-group-item-action">Home</a>
-                        <a href="#!" className="list-group-item list-group-item-action">Games</a>
+                        <a href="/" className="list-group-item list-group-item-action">Home</a>
+                        <a href="/games" className="list-group-item list-group-item-action">Games</a>
                         <a href="#!" className="list-group-item list-group-item-action">Genres</a>
                         <a href="#!" className="list-group-item list-group-item-action">Add Game</a>
                         <a href="#!" className="list-group-item list-group-item-action">Manage</a>
@@ -26,7 +26,7 @@ function App() {
                 </nav>
             </div>
             <div className="col-md-10">
-                <Home></Home>
+                <Outlet />
             </div>
         </div>
     </div>
