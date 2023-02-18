@@ -8,6 +8,7 @@ import Games from "./components/Games";
 import Game from "./components/Game";
 import Genres from "./components/Genres";
 import Manage from "./components/Manage";
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: "/genres",
                 element: <Genres />
+            },
+            {
+                path: "/login",
+                element: <Login />
             },
             {
                 path: "/admin/game/0",
