@@ -22,10 +22,8 @@ func main() {
 	app.Domain = "example.com"
 	log.Println("Starting server on port", port, "for domain", app.Domain, "...")
 
-	http.HandleFunc("/", Hello)
-
 	// TODO: Start a web server
-	err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	err := http.ListenAndServe(fmt.Sprintf(":%d", port), app.routes())
 	if err != nil {
 		log.Fatal(err)
 	}
