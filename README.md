@@ -1,7 +1,3 @@
-# play-walletless-games
-A website to find free games collected in one place
-
-Currently used tools:
 # Play Walletless Games
 > A website to find free games collected in one place. Free games will be compiled with a brief overview and where you can play them.
 
