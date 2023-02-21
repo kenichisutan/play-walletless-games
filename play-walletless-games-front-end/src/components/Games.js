@@ -5,26 +5,21 @@ const Games = () => {
     const [games, setGames] = useState([]);
 
     useEffect( () => {
-        let gamesList = [
-            {
-                id: 1,
-                title: "The Legend of Zelda: Breath of the Wild",
-                release_date: "2017",
-                esrb_rating: "E10+",
-                genre: "Action-Adventure",
-                description: "Sample description"
-            },
-            {
-                id: 2,
-                title: "Mario Kart 8 Deluxe",
-                release_date: "2017",
-                esrb_rating: "E",
-                genre: "Racing",
-                description: "Sample description"
-            },
-        ];
-        setGames(gamesList)
-    })
+        const headers = new Headers();
+        headers.append("Content-Type", "application/json");
+
+        const requestOptions = {
+            method: "GET",
+            headers: headers,
+        }
+
+        fetch(`http://localhost:8000/games`, requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                setGames(data);
+            })
+            .catch(error => console.log(error));
+    }, [])
     return(
         <>
             <div className="text-center">
