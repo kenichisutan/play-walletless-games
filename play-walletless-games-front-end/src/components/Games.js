@@ -13,7 +13,7 @@ const Games = () => {
             headers: headers,
         }
 
-        fetch(`http://localhost:8000/games`, requestOptions)
+        fetch(`http://localhost:8080/games`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 setGames(data);
