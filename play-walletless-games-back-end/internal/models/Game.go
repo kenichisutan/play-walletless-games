@@ -7,7 +7,6 @@ type Game struct {
 	Title       string    `json:"title"`
 	ReleaseDate time.Time `json:"release_date"`
 	ESRBRating  string    `json:"esrb_rating"`
-	Genre       string    `json:"genre"`
 	Description string    `json:"description"`
 	Image       string    `json:"image"`
 	CreatedAt   time.Time `json:"-"`
