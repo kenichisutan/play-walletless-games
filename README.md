@@ -19,6 +19,8 @@
 #### Back-end:
 - Go - version 1.20
   - Go Chi - [version 5.0](https://github.com/go-chi/chi/)
+#### Database:
+- PostgreSQL - version 13.0
 
 
 ## Project Status
