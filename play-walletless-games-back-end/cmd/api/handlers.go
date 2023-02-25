@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 )
 
@@ -22,7 +21,7 @@ func (app *application) Home(w http.ResponseWriter, r *http.Request) {
 func (app *application) AllGames(w http.ResponseWriter, r *http.Request) {
 	games, err := app.DB.AllGames()
 	if err != nil {
-		fmt.Println(err)
+		app.errorJSON(w, err)
 		return
 	}
 
