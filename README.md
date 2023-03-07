@@ -19,6 +19,7 @@
 #### Back-end:
 - Go - version 1.20
   - Go Chi - [version 5.0](https://github.com/go-chi/chi/)
+  - Go jwt - [version 4.5.0](https://github.com/golang-jwt/jwt)
 #### Database:
 - PostgreSQL - version 13.0
 
