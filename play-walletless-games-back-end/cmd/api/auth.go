@@ -29,7 +29,7 @@ type jwtClaims struct {
 }
 
 type TokenPairs struct {
-	AccessToken  string `json:"access_token"`
+	Token        string `json:"access_token"`
 	RefreshToken string `json:"refresh_token"`
 }
 
@@ -75,7 +75,7 @@ func (j *Auth) GenerateTokenPair(user *jwtUser) (TokenPairs, error) {
 
 	// Create TokenPairs and populate with tokens
 	var tokenPairs = TokenPairs{
-		AccessToken:  signedAccessToken,
+		Token:        signedAccessToken,
 		RefreshToken: signedRefreshToken,
 	}
 
