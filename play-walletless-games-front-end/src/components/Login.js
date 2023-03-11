@@ -3,7 +3,7 @@ import Input from "./form/Input";
 import {useNavigate, useOutletContext} from "react-router-dom";
 
 const Login = () => {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const { setJwtToken } = useOutletContext()
@@ -14,17 +14,38 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("username: " + username + ", password: " + password);
-        if(username === "admin" && password === "admin") {
-            setJwtToken("1234567890");
-            setAlertClassName("d-none");
-            setAlertMessage("");
-            navigate("/");
-        } else {
-            setJwtToken("");
-            setAlertClassName("alert-danger");
-            setAlertMessage("Invalid username or password");
+        console.log("email: " + email + ", password: " + password);
+
+        // build the request payload
+        let payload = {
+            email: email,
+            password: password,
         }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify(payload)
+        }
+
+        fetch('/authenticate', requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.error) {
+                    setAlertClassName("alert-danger");
+                    setAlertMessage(data.message);
+                } else {
+                    setJwtToken(data.access_token);
+                    setAlertClassName("d-none");
+                    setAlertMessage("");
+                    navigate("/");
+                }
+            })
+            .catch((error) => {
+                setAlertClassName("alert-danger");
+                setAlertMessage("Error: " + error);
+            })
     }
 
     return (
@@ -33,12 +54,12 @@ const Login = () => {
             <hr/>
             <form onSubmit={handleSubmit}>
                 <Input
-                    title="Username"
-                    type="username"
+                    title="Email Address"
+                    type="email"
                     className="form-control"
-                    name="username"
-                    autoComplete="username-new"
-                    onChange={(event) => setUsername(event.target.value)}
+                    name="email"
+                    autoComplete="email-new"
+                    onChange={(event) => setEmail(event.target.value)}
                 />
                 <Input
                     title="Password"
